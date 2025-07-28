@@ -26,7 +26,7 @@ class Test_cd:
         with allure.step("步骤一：登录"):
             pass
 
-    @pytest.mark.skip(reason='暂不执行该用例')
+    # @pytest.mark.skip(reason='暂不执行该用例')
     # @pytest.mark.smoke
     def test_Upload(self, all_case_fixture):
 
@@ -44,10 +44,11 @@ class Test_cd:
                 r"C:\Users\31646\AppData\Local\Programs\Python\venv\python_study\module\POM\testcases\1.jpg")
 
     # 单独运行某个用例的方法
-    # @pytest.mark.smoke    # 重复运行指定次数用例的方法
+    # @pytest.mark.smoke
+    # 重复运行指定次数用例的方法
     # @pytest.mark.repeat(2)
     # 跳过测试用例
-    @pytest.mark.skip(reason='暂不执行该用例')
+    # @pytest.mark.skip(reason='暂不执行该用例')
     # 数据驱动方法
     @pytest.mark.parametrize("caseinfo", read_excel_to_list(
         r"C:\Users\31646\AppData\Local\Programs\Python\venv\python_study\module\POM\testcases\cases.xlsx", "Sheet1"))
