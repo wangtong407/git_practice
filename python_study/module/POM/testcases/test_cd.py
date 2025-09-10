@@ -27,7 +27,7 @@ class Test_cd:
             pass
 
     # @pytest.mark.skip(reason='暂不执行该用例')
-    # @pytest.mark.smoke
+    @pytest.mark.smoke
     def test_Upload(self, all_case_fixture):
 
         allure.dynamic.severity('minor')
