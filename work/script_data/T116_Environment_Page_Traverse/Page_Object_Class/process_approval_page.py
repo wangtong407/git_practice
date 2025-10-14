@@ -41,13 +41,13 @@ class Process_Approval_Workflow_Page(BasePage):
         self.click('xpath', self.workflow_element)
 
         # 遍历请款
-        # self.click('xpath', self.payment_request_element)
-        # self.click('xpath', self.payment_request_element1)
-        # self.click('xpath', self.payment_request_element2)
-        # self.click('xpath', self.payment_request_element3)
-        # self.click('xpath', self.payment_request_element4)
-        # self.click('xpath', self.payment_request_element5)
-        # self.click('xpath', self.payment_request_element6)
+        self.click('xpath', self.payment_request_element)
+        self.click('xpath', self.payment_request_element1)
+        self.click('xpath', self.payment_request_element2)
+        self.click('xpath', self.payment_request_element3)
+        self.click('xpath', self.payment_request_element4)
+        self.click('xpath', self.payment_request_element5)
+        self.click('xpath', self.payment_request_element6)
 
     # 本级员工报销
     def CurrentLevel_employee_reimbursement(self):
