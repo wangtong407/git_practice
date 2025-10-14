@@ -37,7 +37,7 @@ def driver_login_cd():
     edge_options = Options()
 
     # 添加保持浏览器不关闭的参数（关键步骤）
-    edge_options.add_experimental_option("detach", True)  # 保持浏览器进程存活
+    # edge_options.add_experimental_option("detach", True)  # 保持浏览器进程存活
 
     # EdgeChromiumDriverManager 配合 Service 类，下载浏览器驱动(Edge因为墙的问题无法自动下载)
     # service = Service(EdgeChromiumDriverManager().install())
