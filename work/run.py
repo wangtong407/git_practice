@@ -44,16 +44,16 @@ def zip_folder(folder_path, output_path):
 # 设置全局pytest框架启动方法
 if __name__ == '__main__':
     # 启动pytest框架
-    # pytest.main()
+    pytest.main()
 
     # allure generate 构建allure报告
     # ./POM//temps 使用该文件下的临时json报告
     # -o ./reports 将转化的html报告输出到reports目录下
     # --clean 当目录中有报告会删除后再生成报告
-    # os.system("allure generate ./script_data/T116_Environment_Page_Traverse//temps -o ./script_data/T116_Environment_Page_Traverse//reports --clean")
+    os.system("allure generate ./script_data/T116_Environment_Page_Traverse//temps -o ./script_data/T116_Environment_Page_Traverse//reports --clean")
 
     # 调用压缩文件夹的方法，生成zip压缩包
-    # zip_folder(r"./script_data/T116_Environment_Page_Traverse/reports", r"./script_data/T116_Environment_Page_Traverse/reports.zip")
+    zip_folder(r"./script_data/T116_Environment_Page_Traverse/reports", r"./script_data/T116_Environment_Page_Traverse/reports.zip")
     zip_folder(r"./script_data/T116_Environment_Page_Traverse/Screenshot", r"./script_data/T116_Environment_Page_Traverse/Screenshot.zip")
     # time.sleep(2)
 
