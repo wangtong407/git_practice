@@ -1,11 +1,6 @@
-import time
-
 import pytest
 import os
 import zipfile
-
-from work.script_data.T116_Environment_Page_Traverse.Tools.delete_image import delete_png
-from work.script_data.T116_Environment_Page_Traverse.Tools.send_email import send_email_with_attachment
 
 
 # 创建压缩报告的函数
