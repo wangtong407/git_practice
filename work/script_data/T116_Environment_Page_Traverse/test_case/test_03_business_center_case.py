@@ -9,6 +9,7 @@ from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import
 
 # 商务中心页面
 # @pytest.mark.smoke
+@allure.epic("项目名称：邦芒综合服务平台页面遍历")
 class Test_03_case:
 
     @allure.feature("商务中心")

@@ -14,6 +14,7 @@ from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import
 
 # 基础配置页面
 # @pytest.mark.smoke
+@allure.epic("项目名称：邦芒综合服务平台页面遍历")
 class Test_06_case:
 
     @allure.feature("基础配置")

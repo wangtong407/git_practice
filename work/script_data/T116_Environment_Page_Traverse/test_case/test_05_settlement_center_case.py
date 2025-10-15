@@ -11,6 +11,7 @@ from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import
 
 # 结算中心页面
 # @pytest.mark.smoke
+@allure.epic("项目名称：邦芒综合服务平台页面遍历")
 class Test_05_case:
 
     @allure.feature("结算中心")
