@@ -178,7 +178,7 @@ class BasePage:
                     break
 
         except Exception as e:
-            log.logging_error(f"没有出现要捕捉的异常提示：{e}")
+            log.logging_error(f"没有出现要捕捉的: {error_text} 异常提示")
 
     # 封装捕捉加载超时的元素，使用循环检查，最多等等10秒，每0.5秒进行检查，超时后进行截图捕捉，未超时跳出(locator, screenshot_name, error_text=None)
     # def capture_Loading_timeout_prompt(self):
@@ -235,77 +235,77 @@ class BasePage:
             # 判断页面加载元素是否是不存在
             if WebDriverWait(self.driver, 5, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_1))):
                 pass
-                log.logging_info("没有捕获到页面加载元素")
+                log.logging_info("没有捕获到页面加载元素1")
         except Exception as e:
             # 页面加载元素抛出异常时执行
-            log.logging_error(f"捕获到页面加载元素：{e}")
+            log.logging_error(f"捕获到页面加载元素1：{e}")
             while True:
                 try:
                     if self.wait.until_not(EC.text_to_be_present_in_element((By.XPATH, error_1), '页面加载中')):
                         continue
                 except Exception as e:
-                    time.sleep(1)
-                    self.screenshot('ERROR-页面加载超时_截图')
-                    self.allure_screenshot('ERROR-页面加载超时_截图')
+                    # time.sleep(1)
+                    self.screenshot('ERROR_1-页面加载超时_截图')
+                    self.allure_screenshot('ERROR_1-页面加载超时_截图')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
 
         try:
             # 判断页面DOM加载元素是否是不存在
             if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_2))):
-                log.logging_info("没有捕获到页面DOM加载元素")
+                log.logging_info("没有捕获到页面DOM加载元素2")
                 pass
         except Exception as e:
             # 页面DOM加载元素抛出异常时执行
-            log.logging_error(f"捕获到页面DOM加载元素：{e}")
+            log.logging_error(f"捕获到页面DOM加载元素2：{e}")
             while True:
                 try:
                     if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_2))):
                         continue
                 except Exception as e:
-                    time.sleep(1)
-                    self.screenshot('ERROR-页面DOM加载超时_截图')
-                    self.allure_screenshot('ERROR-页面DOM加载超时_截图')
+                    # time.sleep(1)
+                    self.screenshot('ERROR_2-页面DOM加载超时_截图')
+                    self.allure_screenshot('ERROR_2-页面DOM加载超时_截图')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
                 break
 
         try:
-            # 判断页面DOM加载元素是否是不存在
+            # 判断页面DOM加载元素是否是不存在·出现1次
             if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_3))):
-                log.logging_info("没有捕获到页面DOM加载元素")
+                log.logging_info("没有捕获到页面DOM加载元素3")
                 pass
         except Exception as e:
             # 页面DOM加载元素抛出异常时执行
-            log.logging_error(f"捕获到页面DOM加载元素：{e}")
+            log.logging_error(f"捕获到页面DOM加载元素3：{e}")
             while True:
                 try:
                     if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_3))):
                         continue
                 except Exception as e:
-                    time.sleep(1)
-                    self.screenshot('ERROR-页面DOM加载超时_截图')
-                    self.allure_screenshot('ERROR-页面DOM加载超时_截图')
+                    # time.sleep(1)
+                    self.screenshot('ERROR_3-页面DOM加载超时_截图')
+                    self.allure_screenshot('ERROR_3-页面DOM加载超时_截图')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
                 break
 
         try:
-            # 判断页面DOM加载元素是否是不存在
+            # 判断页面DOM加载元素是否是不存在·出现12次
             if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
-                log.logging_info("没有捕获到页面DOM加载元素")
+                log.logging_info("没有捕获到页面DOM加载元素4")
                 pass
         except Exception as e:
             # 页面DOM加载元素抛出异常时执行
-            log.logging_error(f"捕获到页面DOM加载元素：{e}")
+            log.logging_error(f"捕获到页面DOM加载元素4：{e}")
             while True:
                 try:
                     if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
                         continue
                 except Exception as e:
-                    time.sleep(1)
-                    self.screenshot('ERROR-页面DOM加载超时_截图')
-                    self.allure_screenshot('ERROR-页面DOM加载超时_截图')
+                    # time.sleep(1)
+                    self.screenshot('ERROR_4-页面DOM加载超时_截图')
+                    self.allure_screenshot('ERROR_4-页面DOM加载超时_截图')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
                 break
@@ -313,27 +313,28 @@ class BasePage:
         try:
             # 判断页面DOM加载元素是否是不存在
             if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_5))):
-                log.logging_info("没有捕获到页面DOM加载元素")
+                log.logging_info("没有捕获到页面DOM加载元素5")
                 pass
         except Exception as e:
             # 页面DOM加载元素抛出异常时执行
-            log.logging_error(f"捕获到页面DOM加载元素：{e}")
+            log.logging_error(f"捕获到页面DOM加载元素5：{e}")
             while True:
                 try:
                     if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_5))):
                         continue
                 except Exception as e:
-                    time.sleep(1)
-                    self.screenshot('ERROR-页面DOM加载超时_截图')
-                    self.allure_screenshot('ERROR-页面DOM加载超时_截图')
+                    # time.sleep(1)
+                    self.screenshot('ERROR_5-页面DOM加载超时_截图')
+                    self.allure_screenshot('ERROR_5-页面DOM加载超时_截图')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
                 break
 
         try:
+            # 这个重复的error_4代码块是有个页面同时出现了2个error_4的加载元素，所以可能需要捕捉两次，但存疑，加上最好
             # 判断页面DOM加载元素是否是不存在
             if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
-                log.logging_info("没有捕获到页面DOM加载元素")
+                log.logging_info("没有捕获到页面DOM加载元素6")
                 pass
         except Exception as e:
             # 页面DOM加载元素抛出异常时执行
@@ -343,9 +344,9 @@ class BasePage:
                     if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
                         continue
                 except Exception as e:
-                    time.sleep(1)
-                    self.screenshot('ERROR-页面DOM加载超时_截图')
-                    self.allure_screenshot('ERROR-页面DOM加载超时_截图')
+                    # time.sleep(1)
+                    self.screenshot('ERROR_4-页面DOM加载超时_截图2')
+                    self.allure_screenshot('ERROR_4-页面DOM加载超时_截图2')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
                 break
@@ -386,7 +387,8 @@ class BasePage:
         # 这里加封装捕捉异常提示
         self.capture_prompt('xpath', "//div[@class='w-full break-all']", '未配置科目_截图', "未配置科目")
         self.capture_prompt('xpath', "//div[@class='w-full break-all']", 'ERROR_后端服务返回了错误_截图', "后端服务返回了错误，请联系管理员。")
-        self.capture_prompt('xpath', "//div[@class='flex items-center']", 'ERROR_出现提示弹窗_截图', "提示")
+        self.capture_prompt('xpath', "//div[@class='request-error-modal']", 'ERROR_失败截图_截图')
+        # self.capture_prompt('xpath', "//div[@class='flex items-center']", 'ERROR_出现提示弹窗_截图', "提示")    # 取消捕捉这个元素，会导致日志太大
 
         # 临时添加截图方法
         self.screenshot('执行通过截图')

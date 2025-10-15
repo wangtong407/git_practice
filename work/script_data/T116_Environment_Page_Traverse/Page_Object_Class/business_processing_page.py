@@ -11,11 +11,13 @@ class Business_Processing_Tab(BasePage):    # 进入业务办理Tab
     def Business_Processing_Tab(self):  # 进入业务办理Tab
         # 进入商务中心模块Tab
         self.click('xpath', self.business_processing_element)
+        # self.click('xpath', self.skip_guidance_element)
 
 
 class Employee_Management_Page(BasePage):  # 员工管理模块
     # 进入业务办理模块元素
     # business_processing_element = "//div[contains(text(),'业务办理')]"
+    skip_guidance_element = "//*[contains(text(),'跳过引导')]"    # test1 出现这个弹窗，116没有
 
     # 员工管理盒子元素
     employee_management_box_element = "//div[@title='员工管理']"
@@ -53,6 +55,9 @@ class Employee_Management_Page(BasePage):  # 员工管理模块
 
         # 遍历员工管理元素
         self.click('xpath', self.employee_management_1_element)
+
+        self.click('xpath', self.skip_guidance_element)     # 关闭引导弹窗 test1环境1
+
         self.click('xpath', self.employee_management_2_element)
         self.click('xpath', self.employee_management_3_element)
         self.click('xpath', self.employee_management_4_element)

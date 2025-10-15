@@ -85,15 +85,17 @@ def driver_login_cd():
     # 获取URL
     # url = "http://192.168.0.114:18080/#/login"
     # url = "http://192.168.0.115:18080/#/login"
-    url = "http://192.168.0.116:18080/"
+    # url = "http://192.168.0.116:18080/#/login"
+    url = "http://test1erp.50bm.cc/#/login"     # test1环境
     driver.get(url)
     log.logging_info(f"访问：{url}")
 
     # 调用登录方法
-    # Login(driver).login_fun("BM000076", "123456")
     # Login(driver).login_fun("admin", "123456")
-    Login(driver).login_fun("admin", "123456")
+    Login(driver).login_fun("BM002971", "883304yoyo")
     BasePage(driver).allure_screenshot('登录成功截图')
+    # log.logging_info(f"1a121d1:{BasePage(driver).get_title()}")
+    # BasePage(driver).switch_to_windows()
 
     return driver
 

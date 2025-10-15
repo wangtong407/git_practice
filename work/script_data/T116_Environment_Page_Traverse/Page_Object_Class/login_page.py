@@ -27,16 +27,17 @@ class Login(BasePage):
         log.logging_info("点击登录按钮")
 
         # 捕捉提示“邦芒综合服务平台\nTes”，确认是否登录成功
-        if self.text_present_in_element('css_selector', self.login_success_prompt, '邦芒综合服务平台\nMig'):
-            log.logging_info(r"捕捉成功:邦芒综合服务平台\nTes，确认登录成功，进入首页")
+        if self.text_present_in_element('css_selector', self.login_success_prompt, '邦芒综合服务平台\nFat'):
+            log.logging_info(r"捕捉成功:邦芒综合服务平台\nFat，确认登录成功，进入首页")
+            log.logging_info(f"789789功:{self.get_title()}")
 
             try:
                 # 截图查看是否登录成功
                 self.screenshot('登录成功截图')
             except Exception as e:
                 log.logging_error(f"出现异常请确认截图是否保存成功：{e}")
-
-        else:
-            log.logging_error(f"请确认是否登录成功")
+        #
+        # else:
+        #     log.logging_error(f"请确认是否登录成功")
         # except Exception as e:
         #         log.logging_error(f"出现错误提示：{e}")

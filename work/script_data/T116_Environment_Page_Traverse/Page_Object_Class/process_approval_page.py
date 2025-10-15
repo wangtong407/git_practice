@@ -99,7 +99,8 @@ class Process_Approval_Workflow_Page(BasePage):
 
         # 遍历外包员工报销元素
         outsourcing_employee_reimbursement_1_element = "//li[@role='menuitem']//div[@title='外包员工报销'][contains(text(),'外包员工报销')]"
-        outsourcing_employee_reimbursement_2_element = '//*[@id="sub_menu_9_$$_/erp/workflow/expense/extStaff-popup"]/li[2]/span'
+        # outsourcing_employee_reimbursement_2_element = '//*[@id="sub_menu_9_$$_/erp/workflow/expense/extStaff-popup"]/li[2]/span'   # 116 的元素
+        outsourcing_employee_reimbursement_2_element = '//*[@id="sub_menu_6_$$_/erp/workflow/expense/extStaff-popup"]/li[2]/span'   # test1 的元素
         outsourcing_employee_reimbursement_3_element = "//div[@title='特殊协议配置页面']"
         outsourcing_employee_reimbursement_4_element = "//div[@title='明细']"
 
@@ -145,7 +146,8 @@ class Process_Approval_Workflow_Page(BasePage):
         # 遍历团队基金元素
         team_fund_1_element = "//li[@class='ant-menu-item ant-menu-item-only-child']//div[@title='申请'][contains(text(),'申请')]"
         team_fund_2_element = "//div[@title='账户管理']"
-        team_fund_3_element = '//*[@id="sub_menu_11_$$_/erp/workflow/teamfund-popup"]/li[3]/span'
+        # team_fund_3_element = '//*[@id="sub_menu_11_$$_/erp/workflow/teamfund-popup"]/li[3]/span'   # 116环境
+        team_fund_3_element = '/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[6]/ul/li[3]/span'   # test1环境
 
         # 展开团队基金
         self.click('xpath', team_fund_box_element)
@@ -168,11 +170,17 @@ class Process_Approval_Workflow_Page(BasePage):
         # 展开采购元素
         procurement_box_element = "//div[@title='采购']"
 
-        # 遍历采购元素
-        procurement_1_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[1]/span'
-        procurement_2_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[2]/span'
-        procurement_3_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[3]/span'
-        procurement_4_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[4]/span'
+        # 遍历采购元素，116环境
+        # procurement_1_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[1]/span'
+        # procurement_2_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[2]/span'
+        # procurement_3_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[3]/span'
+        # procurement_4_element = '//*[@id="sub_menu_12_$$_/erp/workflow/purchase-popup"]/li[4]/span'
+
+        # test1环境
+        procurement_1_element = "/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[8]/ul/li[1]/span"
+        procurement_2_element = "/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[8]/ul/li[2]/span"
+        procurement_3_element = "//li[@class='ant-menu-item ant-menu-item-only-child']//div[@title='物品配置'][contains(text(),'物品配置')]"
+        procurement_4_element = "/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[8]/ul/li[4]/span"
 
         # 展开采购
         self.click('xpath', procurement_box_element)
@@ -198,7 +206,8 @@ class Process_Approval_Workflow_Page(BasePage):
 
         # 遍历跑腿业务元素
         errand_business_1_element = "//div[@title='跑腿业务(申请)']"
-        errand_business_2_element = '//*[@id="sub_menu_13_$$_/erp/workflow/business-running-popup"]/li[2]/span'
+        # errand_business_2_element = '//*[@id="sub_menu_13_$$_/erp/workflow/business-running-popup"]/li[2]/span'   # 116
+        errand_business_2_element = '/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[10]/ul/li[2]/span'   # test1
         errand_business_3_element = "//div[@title='跑腿业务(审批)']"
 
         # 展开跑腿业务
@@ -278,9 +287,13 @@ class Process_Approval_Workflow_Page(BasePage):
         # 展开退款元素
         refund_box_element = "//div[@title='退款']"
 
-        # 遍历退款元素
-        refund_apply_1_element = '//*[@id="sub_menu_14_$$_/erp/workflow/refund-popup"]/li[1]/span'
-        refund_approval_2_element = '//*[@id="sub_menu_14_$$_/erp/workflow/refund-popup"]/li[2]/span'
+        # 遍历退款元素 116环境
+        # refund_apply_1_element = '//*[@id="sub_menu_14_$$_/erp/workflow/refund-popup"]/li[1]/span'
+        # refund_approval_2_element = '//*[@id="sub_menu_14_$$_/erp/workflow/refund-popup"]/li[2]/span'
+
+        # test1环境
+        refund_apply_1_element = '/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[19]/ul/li[1]/span'
+        refund_approval_2_element = '/html/body/div[1]/section/section/aside/div/div/div/div[2]/ul/li[1]/ul/li[19]/ul/li[2]/span'
 
         # 展开退款
         self.click('xpath', refund_box_element)

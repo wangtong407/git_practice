@@ -19,5 +19,17 @@ error_4 = '//div[@class="vxe-loading--wrapper"]//div[1]'
 error_5 = '//*[@id="/erp/generalSalary/personalDeduction/rostetStatistics/index"]/div[2]/div/section/div'
 
 
+"""
+116 和 test1 的元素差异
+流程审批：
+本级员工报销审批按钮
+团队基金的审批按钮
+采购下的所有按钮
+跑腿业务的配置页面
+退款下的申请，审批按钮
 
+业务办理：
+员工管理-订单查询出现引导弹窗 test1 出现这个弹窗，116没有
+
+"""
 
