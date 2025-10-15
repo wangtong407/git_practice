@@ -2,6 +2,9 @@ import pytest
 import os
 import zipfile
 
+# 导入删除截图方法
+from work.script_data.T116_Environment_Page_Traverse.Tools.delete_image import delete_png
+
 
 # 创建压缩报告的函数
 def zip_folder(folder_path, output_path):
@@ -55,6 +58,6 @@ if __name__ == '__main__':
     # send_email_with_attachment('ytttfxjgbhvddebi', '2873978343@qq.com')     # 邮件发送截图附件方法
     # send_email_with_attachment('ytttfxjgbhvddebi', 'zsm@50bm.com')     # 邮件发送截图附件方法
 
-    # delete_png(r"./script_data/T116_Environment_Page_Traverse/Screenshot")    # 删除截图方法
+    delete_png(r"./script_data/T116_Environment_Page_Traverse/Screenshot")    # 删除截图方法
 
 
