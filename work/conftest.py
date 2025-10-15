@@ -2,8 +2,8 @@ import pytest
 from selenium import webdriver
 
 # edge浏览器的导包
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
+# from selenium.webdriver.edge.service import Service
+# from selenium.webdriver.edge.options import Options
 
 from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import BasePage
 # 日志方法传入
@@ -13,9 +13,8 @@ from work.script_data.T116_Environment_Page_Traverse.Tools.log_tool import Loggi
 from work.script_data.T116_Environment_Page_Traverse.Page_Object_Class.login_page import Login
 
 # Chrom浏览器的导包
-# from selenium.webdriver.chrome.service import Service
-# from selenium.webdriver.chrome.options import Options
-# from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 # 基类后置方法导入
 # 登录前置操作导入
@@ -71,14 +70,14 @@ def driver_login_cd():
 
     # 指定Edge和chrome的浏览器驱动
     # service = Service(r"C:\Users\31646\.wdm\drivers\edgedriver_win64\msedgedriver.exe")
-    # service = Service(r"C:\Users\31646\.wdm\drivers\chromedriver-win32\chromedriver.exe")
+    service = Service(r"./script_data/T116_Environment_Page_Traverse/driver/edgedriver_win64/msedgedriver.exe")
 
     # service = Service()
     # service.path = r"C:\Users\31646\.wdm\drivers\chromedriver-win32\chromedriver.exe"
 
     # 实例化浏览器
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Edge(options=edge_options)
+    driver = webdriver.Edge(options=edge_options, service=service)
 
     # 窗口最大化
     driver.maximize_window()

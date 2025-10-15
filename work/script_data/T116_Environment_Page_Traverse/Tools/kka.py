@@ -20,10 +20,10 @@ def allure_wrapper(module, page, case_name):  # allure 报告集成方法
 
 
 # 使用示例
-@allure_wrapper(module="登录模块", page="登录页", case_name="验证正确用户名密码登录")
-def test_login_success():
+# @allure_wrapper(module="登录模块", page="登录页", case_name="验证正确用户名密码登录")
+# def test_login_success():
     # 测试逻辑
-    pass
+    # pass
 
 
 """
