@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 from work.script_data.T116_Environment_Page_Traverse.Tools.error_info_element import error_1, error_2, error_3, error_4, \
-    error_5
+    error_5, error_6
 
 from work.script_data.T116_Environment_Page_Traverse.Tools.log_tool import Logging
 
@@ -292,7 +292,7 @@ class BasePage:
 
         try:
             # 判断页面DOM加载元素是否是不存在·出现12次
-            if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
+            if WebDriverWait(self.driver, 2, 0.1).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
                 log.logging_info("没有捕获到页面DOM加载元素4")
                 pass
         except Exception as e:
@@ -333,7 +333,7 @@ class BasePage:
         try:
             # 这个重复的error_4代码块是有个页面同时出现了2个error_4的加载元素，所以可能需要捕捉两次，但存疑，加上最好
             # 判断页面DOM加载元素是否是不存在
-            if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
+            if WebDriverWait(self.driver, 2, 0.3).until_not(EC.visibility_of_any_elements_located((By.XPATH, error_6))):
                 log.logging_info("没有捕获到页面DOM加载元素6")
                 pass
         except Exception as e:
@@ -341,12 +341,11 @@ class BasePage:
             log.logging_error(f"捕获到页面DOM加载元素：{e}")
             while True:
                 try:
-                    if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_4))):
+                    if self.wait.until_not(EC.visibility_of_any_elements_located((By.XPATH, error_6))):
                         continue
                 except Exception as e:
-                    # time.sleep(1)
-                    self.screenshot('ERROR_4-页面DOM加载超时_截图2')
-                    self.allure_screenshot('ERROR_4-页面DOM加载超时_截图2')
+                    self.screenshot('ERROR_6-页面DOM加载超时_截图')
+                    self.allure_screenshot('ERROR_6-页面DOM加载超时_截图')
                     log.logging_error(f"页面加载超时提示：{e}")
                     break
                 break
@@ -391,6 +390,7 @@ class BasePage:
         # self.capture_prompt('xpath', "//div[@class='flex items-center']", 'ERROR_出现提示弹窗_截图', "提示")    # 取消捕捉这个元素，会导致日志太大
 
         # 临时添加截图方法
+        time.sleep(0.3) # 防止运行过快而导致错误截图
         self.screenshot('执行通过截图')
         self.allure_screenshot('执行通过截图')
 

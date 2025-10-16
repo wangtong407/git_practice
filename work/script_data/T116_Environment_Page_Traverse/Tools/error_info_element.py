@@ -18,6 +18,7 @@ error_4 = '//div[@class="vxe-loading--wrapper"]//div[1]'
 # 业务办理-人员花名册统计页面DOM加载元素
 error_5 = '//*[@id="/erp/generalSalary/personalDeduction/rostetStatistics/index"]/div[2]/div/section/div'
 
+error_6 = "//div[@class='vxe-loading--wrapper']"
 
 """
 116 和 test1 的元素差异
@@ -30,6 +31,7 @@ error_5 = '//*[@id="/erp/generalSalary/personalDeduction/rostetStatistics/index"
 
 业务办理：
 员工管理-订单查询出现引导弹窗 test1 出现这个弹窗，116没有
+
 
 """
 
