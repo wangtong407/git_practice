@@ -1,3 +1,5 @@
+import time
+
 from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import BasePage
 from work.script_data.T116_Environment_Page_Traverse.Tools.log_tool import Logging
 
@@ -104,7 +106,7 @@ class Agreement_Management_Page(BasePage):
     # 遍历协议管理元素
     agreement_management_1_element = '[data-menu-id="/erp/business/agreementManagement/index"]'
 
-    agreement_management_details_button = '//*[@id="/erp/business/agreementManagement/index"]/div[2]/div/div[2]/div/div[3]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button[2]/span'     # 详情按钮
+    agreement_management_details_button = '//*[@id="/erp/business/agreementManagement/index"]/div[2]/div/div[3]/div/div[3]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button/span'     # 详情按钮
     agreement_management_other_configurations_button = "//div[contains(text(),'其他配置')]"     # 其他配置按钮
     # agreement_management_other_configurations_page_fwfpz_element = "//div[contains(text(),'服务费配置')]"
     # agreement_management_other_configurations_page_ghfcbjpz_element = "//div[contains(text(),'工会费残保金配置')]"
@@ -133,12 +135,20 @@ class Agreement_Management_Page(BasePage):
         self.click('css_selector', self.agreement_management_box_element)
 
         # 遍历协议管理
-        self.click('css_selector', self.agreement_management_1_element)
-
-        # 点击详情按钮，遍历协议内容
-        self.click('xpath', self.agreement_management_details_button)
-        self.click('xpath', self.agreement_management_other_configurations_button)
-        self.click('xpath', self.agreement_management_other_configurations_page_return_element)
+        try:
+            self.click('css_selector', self.agreement_management_1_element)
+        except Exception as e:
+            log.logging_error(f"协议管理页面出现异常：{e}")
+            self.screenshot('协议管理页面出现异常截图')
+        else:
+            # 点击详情按钮，遍历协议内容，由于有多个详情按钮，获取所有详情按钮后根据索引点击
+            view_buttons = self.visibility_of_all_elements('xpath', "//span[contains(text(),'详情')]")
+            if len(view_buttons) > 2:
+                view_buttons[2].click()
+                time.sleep(1)
+            # self.click('xpath', self.agreement_management_details_button)
+            self.click('xpath', self.agreement_management_other_configurations_button)
+            self.click('xpath', self.agreement_management_other_configurations_page_return_element)
 
         self.click('css_selector', self.agreement_management_2_element)
         self.click('css_selector', self.agreement_management_3_element)

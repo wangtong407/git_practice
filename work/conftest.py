@@ -93,7 +93,7 @@ def driver_login_cd():
     # 调用登录方法
     # Login(driver).login_fun("admin", "123456")
     Login(driver).login_fun("BM002971", "883304yoyo")
-    BasePage(driver).allure_screenshot('登录成功截图')
+    # BasePage(driver).allure_screenshot('登录成功截图')
     # log.logging_info(f"1a121d1:{BasePage(driver).get_title()}")
     # BasePage(driver).switch_to_windows()
 

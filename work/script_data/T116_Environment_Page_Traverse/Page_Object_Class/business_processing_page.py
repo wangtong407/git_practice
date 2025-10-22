@@ -1,3 +1,5 @@
+import time
+
 from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import BasePage
 from work.script_data.T116_Environment_Page_Traverse.Tools.log_tool import Logging
 
@@ -53,8 +55,8 @@ class Employee_Management_Page(BasePage):  # 员工管理模块
 
     skip_guidance_element = "//*[contains(text(),'跳过引导')]"  # 首次会出现弹窗
 
-    employee_management_view_button_element = '//*[@id="/erp/personnel/list/index"]/div[2]/div[1]/div[2]/div/div[3]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button[2]/span'  # 点击查看按钮
-    employee_management_return_button_element = '//*[@id="vcDialogTitle0"]/div/div/button/span[2]'  # 点击返回按钮
+    employee_management_view_button_element = '//*[@id="/erp/personnel/list/index"]/div[2]/div[1]/div[3]/div/div[3]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button/span'  # 点击查看按钮
+    employee_management_return_button_element = "//span[@class='!ml-4px']"  # 点击返回按钮
 
     employee_management_2_element = '[data-menu-id="/erp/personnel/list/index"]'
     employee_management_3_element = '[data-menu-id="/erp/personnel/contractFill/index"]'
@@ -87,13 +89,24 @@ class Employee_Management_Page(BasePage):  # 员工管理模块
 
         # 遍历员工管理元素
         self.click('css_selector', self.employee_management_1_element)
+        try:
+            self.click('xpath', self.skip_guidance_element)     # 关闭引导弹窗 test1环境出现，116环境关闭
+        except Exception as e:
+            log.logging_error(f"引导弹窗未出现{e}")
 
-        self.click('xpath', self.skip_guidance_element)     # 关闭引导弹窗 test1环境出现，116环境关闭
-
-        self.click('css_selector', self.employee_management_2_element)
-
-        self.click('xpath', self.employee_management_view_button_element)    # 点击查看按钮
-        self.click('xpath', self.employee_management_return_button_element)    # 点击返回按钮
+        try:
+            self.click('css_selector', self.employee_management_2_element)
+        except Exception as e:
+            log.logging_error(f"人员管理页面出现异常：{e}")
+            self.screenshot('人员管理页面出现异常截图')
+        else:
+            # 由于有多个查看按钮，获取所有查看按钮后根据索引点击
+            view_buttons = self.visibility_of_all_elements('xpath', "//span[contains(text(),'查看')]")
+            if len(view_buttons) > 2:
+                view_buttons[2].click()
+                time.sleep(1)
+            # self.click('xpath', self.employee_management_view_button_element)    # 点击查看按钮
+            self.click('xpath', self.employee_management_return_button_element)    # 点击返回按钮
 
         self.click('css_selector', self.employee_management_3_element)
         self.click('css_selector', self.employee_management_4_element)
@@ -148,7 +161,7 @@ class Commercial_Insurance_Processing_Page(BasePage):  # 商业险办理模块
     # commercial_insurance_processing_1_element = "//div[@title='商业险申请']"
     commercial_insurance_processing_1_element = '[data-menu-id="/erp/personnel/serviceApply/businessApply/index"]'
 
-    commercial_insurance_processing_view_button_element = '//*[@id="/erp/personnel/serviceApply/businessApply/index"]/div[2]/div[1]/div[2]/div/div[4]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button[1]/span'  # 点击查看按钮
+    commercial_insurance_processing_view_button_element = '//*[@id="/erp/personnel/serviceApply/businessApply/index"]/div[2]/div[1]/div[3]/div/div[4]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button[1]/span'  # 点击查看按钮
     commercial_insurance_processing_return_button_element = "//span[@class='!ml-4px']"  # 返回按钮
 
     def Commercial_Insurance_Processing(self):  # 商业险办理
@@ -156,11 +169,19 @@ class Commercial_Insurance_Processing_Page(BasePage):  # 商业险办理模块
         self.click('css_selector', self.commercial_insurance_processing_box_element)
 
         # 遍历商业险办理
-        self.click('css_selector', self.commercial_insurance_processing_1_element)
-
-        # 点击查看按钮,返回
-        self.click('xpath', self.commercial_insurance_processing_view_button_element)
-        self.click('xpath', self.commercial_insurance_processing_return_button_element)
+        try:
+            self.click('css_selector', self.commercial_insurance_processing_1_element)
+        except Exception as e:
+            log.logging_error(f"商业险办理页面异常{e}")
+            self.screenshot('商业险办理页面异常截图')
+        else:
+            # 由于有多个查看按钮，获取所有查看按钮后根据索引点击
+            view_buttons = self.visibility_of_all_elements('xpath', "//span[contains(text(),'查看')]")
+            if len(view_buttons) > 2:
+                view_buttons[2].click()
+                time.sleep(1)
+            # self.click('xpath', self.commercial_insurance_processing_view_button_element)
+            self.click('xpath', self.commercial_insurance_processing_return_button_element)
 
 
 class Service_Handling_Page(BasePage):  # 服务办理

@@ -172,6 +172,8 @@ class Process_Approval_Workflow_Page(BasePage):
         self.click('css_selector', internal_dispatch_order_2_element)
         self.click('css_selector', internal_dispatch_order_3_element)
 
+        self.capture_prompt_locator('xpath', "//div[@role='dialog']", '未配置科目_截图')
+
         # self.click('xpath', "//span[contains(text(),'知道了')]")
         # self.click('xpath', "//span[contains(text(),'新 增')]")
         # self.click('xpath', "//span[contains(text(),'知道了')]")

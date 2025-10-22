@@ -2,23 +2,31 @@ error_info_element = "//span[contains(text(),'后端服务返回了错误，请�
 error_info_button_element = "//span[contains(text(),'知道了')]"
 
 
-# 大部分页面的页面加载元素
+# 大部分页面的页面加载元素**
 error_1 = '//*[@id="app-main"]/div[2]/section/div'
 
-# 大部分页面DOM的加载元素
-error_2 = '//*[@id="/erp/policy/cooperationRequirements/index"]/div[2]/div[1]/div[2]/div/div[3]/div/div/div[6]/div/div/spann'
+# 大部分页面DOM的加载元素**
+error_2 = '//*[@id="/erp/policy/cooperationRequirements/index"]/div[2]/div[1]/div[2]/div/div[3]/div/div/div[6]/div/div/span'
 
 # 政策库-社保代理合作要求页面的DOM加载元素
 error_3 = '//*[@id="/erp/policy/cooperationRequirements/index"]/div[2]/div[1]/div[2]/div/div[3]/div/div/div[6]/div/div'
 
 # 政策库-社公转移至邦芒页面DOM加载元素
-# 结算中心-应收管理-应收账单的页面DOM加载元素
+# 结算中心-应收管理-应收账单的页面DOM加载元素**
 error_4 = '//div[@class="vxe-loading--wrapper"]//div[1]'
 
-# 业务办理-人员花名册统计页面DOM加载元素
+# 业务办理-人员花名册统计页面DOM加载元素(这里有error_1的加载元素，但error_1又在其他页面有无限加载元素，这里添加一个css定位来捕捉)
 error_5 = '//*[@id="/erp/generalSalary/personalDeduction/rostetStatistics/index"]/div[2]/div/section/div'
+error_5_big = '[aria-busy="true"]'
 
+# *
 error_6 = "//div[@class='vxe-loading--wrapper']"
+
+# 大加载社工
+error_7 = "//*[@class='absolute top-46px left-0 bottom-0 right-0 backdrop-blur-sm z-999 w-full transition-all duration-300']"
+
+# 小加载社工*
+error_8 = "//div[@class='vxe-loading size--small is--visible vxe-table--loading']"
 
 """
 116 和 test1 的元素差异

@@ -22,7 +22,7 @@ class Login(BasePage):
         log.logging_info("输入用户名和密码")
 
         self.click('css_selector', self.login_button)
-        self.screenshot('执行成功截图')
+        # self.screenshot('执行成功截图')
 
         log.logging_info("点击登录按钮")
 

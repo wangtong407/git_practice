@@ -4,11 +4,11 @@ from work.script_data.T116_Environment_Page_Traverse.Tools.log_tool import Loggi
 log = Logging()
 
 
-class Basic_Configuration_Tab(BasePage):    # 进入基础配置Tab
+class Basic_Configuration_Tab(BasePage):  # 进入基础配置Tab
     # 进入基础配置Tab
     basic_configuration_element = "//div[contains(text(),'基础配置')]"
 
-    def Basic_Configuration_Tab(self):      # 进入基础配置Tab
+    def Basic_Configuration_Tab(self):  # 进入基础配置Tab
         # 进入基础配置Tab
         self.click('xpath', self.basic_configuration_element)
 
@@ -101,8 +101,11 @@ class Commercial_Insurance_Configuration_Page(BasePage):  # 商业险配置
         self.click('css_selector', self.commercial_insurance_configuration_2_element)
 
         # 点击发件规则设置按钮
-        self.click('xpath', self.sending_rule_settings_button_element)
-        self.click('xpath', self.return_button_element)
+        try:
+            self.click('xpath', self.sending_rule_settings_button_element)
+            self.click('xpath', self.return_button_element)
+        except Exception as e:
+            log.logging_error(f"点击发件规则设置出现异常：{e}")
 
 
 class Template_Management_Page(BasePage):  # 模板管理盒子
@@ -264,6 +267,3 @@ class Policy_Group_Configuration_Page(BasePage):  # 政策组配置
     def Policy_Group_Configuration(self):  # 政策组配置
         # 政策组配置
         self.click('css_selector', self.policy_group_configuration_box_element)
-
-
-
