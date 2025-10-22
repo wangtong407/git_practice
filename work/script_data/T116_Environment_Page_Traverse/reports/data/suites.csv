@@ -1,4 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","0","使用账号密码登录","script_data.T116_Environment_Page_Traverse.test_case","Wed Oct 22 09:25:51 CST 2025","passed","Wed Oct 22 09:25:51 CST 2025","Test_01_case","test_01_process_approval_case","",""
-"","2532","进入流程审批Tab","script_data.T116_Environment_Page_Traverse.test_case","Wed Oct 22 09:25:51 CST 2025","passed","Wed Oct 22 09:25:53 CST 2025","Test_01_case","test_01_process_approval_case","",""
-"","20992","遍历请款下的页面","script_data.T116_Environment_Page_Traverse.test_case","Wed Oct 22 09:25:53 CST 2025","passed","Wed Oct 22 09:26:14 CST 2025","Test_01_case","test_01_process_approval_case","",""
+"","0","使用账号密码登录","script_data.T116_Environment_Page_Traverse.test_case","Wed Oct 22 12:40:57 CST 2025","passed","Wed Oct 22 12:40:57 CST 2025","Test_01_case","test_01_process_approval_case","",""
+"","2647","进入流程审批Tab","script_data.T116_Environment_Page_Traverse.test_case","Wed Oct 22 12:40:57 CST 2025","passed","Wed Oct 22 12:41:00 CST 2025","Test_01_case","test_01_process_approval_case","",""

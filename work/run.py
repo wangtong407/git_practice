@@ -59,6 +59,6 @@ if __name__ == '__main__':
     # send_email_with_attachment('ytttfxjgbhvddebi', 'zsm@50bm.com')     # 邮件发送截图附件方法
 
     delete_files(r"./script_data/T116_Environment_Page_Traverse/Screenshot")    # 删除截图
-    delete_files(r"./script_data/T116_Environment_Page_Traverse/temps")    # 删除temps下文件
+    # delete_files(r"./script_data/T116_Environment_Page_Traverse/temps")    # 删除temps下文件，取消这个方法，会导致allrue报告失败
 
 

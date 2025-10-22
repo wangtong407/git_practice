@@ -89,6 +89,8 @@ class Commercial_Insurance_Configuration_Page(BasePage):  # 商业险配置
     commercial_insurance_configuration_1_element = '[data-menu-id="/erp/basis/commercialProduct/index"]'
     commercial_insurance_configuration_2_element = '[data-menu-id="/erp/basis/commercialScheme/index"]'
 
+    AutomatedTesting_button = "//div[contains(text(),'自动化测试角色')]"
+
     sending_rule_settings_button_element = "//span[contains(text(),'发件规则设置')]"  # 发件规则设置按钮
     return_button_element = "//span[@class='!ml-4px']"  # 返回按钮
 
@@ -102,6 +104,7 @@ class Commercial_Insurance_Configuration_Page(BasePage):  # 商业险配置
 
         # 点击发件规则设置按钮
         try:
+            self.click('xpath', self.AutomatedTesting_button)
             self.click('xpath', self.sending_rule_settings_button_element)
             self.click('xpath', self.return_button_element)
         except Exception as e:

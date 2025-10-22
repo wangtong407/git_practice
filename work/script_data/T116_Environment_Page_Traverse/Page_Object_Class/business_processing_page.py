@@ -52,6 +52,7 @@ class Employee_Management_Page(BasePage):  # 员工管理模块
 
     # 遍历员工管理元素
     employee_management_1_element = '[data-menu-id="/erp/personnel/order/index"]'
+    AutomatedTesting_button = "//div[contains(text(),'自动化测试角色')]"
 
     skip_guidance_element = "//*[contains(text(),'跳过引导')]"  # 首次会出现弹窗
 
@@ -96,6 +97,7 @@ class Employee_Management_Page(BasePage):  # 员工管理模块
 
         try:
             self.click('css_selector', self.employee_management_2_element)
+            self.click('xpath', self.AutomatedTesting_button)
         except Exception as e:
             log.logging_error(f"人员管理页面出现异常：{e}")
             self.screenshot('人员管理页面出现异常截图')
@@ -161,6 +163,8 @@ class Commercial_Insurance_Processing_Page(BasePage):  # 商业险办理模块
     # commercial_insurance_processing_1_element = "//div[@title='商业险申请']"
     commercial_insurance_processing_1_element = '[data-menu-id="/erp/personnel/serviceApply/businessApply/index"]'
 
+    AutomatedTesting_button = "//div[contains(text(),'自动化测试角色')]"
+
     commercial_insurance_processing_view_button_element = '//*[@id="/erp/personnel/serviceApply/businessApply/index"]/div[2]/div[1]/div[3]/div/div[4]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button[1]/span'  # 点击查看按钮
     commercial_insurance_processing_return_button_element = "//span[@class='!ml-4px']"  # 返回按钮
 
@@ -171,6 +175,7 @@ class Commercial_Insurance_Processing_Page(BasePage):  # 商业险办理模块
         # 遍历商业险办理
         try:
             self.click('css_selector', self.commercial_insurance_processing_1_element)
+            self.click('xpath', self.AutomatedTesting_button)
         except Exception as e:
             log.logging_error(f"商业险办理页面异常{e}")
             self.screenshot('商业险办理页面异常截图')

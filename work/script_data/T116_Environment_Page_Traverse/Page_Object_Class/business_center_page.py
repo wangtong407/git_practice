@@ -105,6 +105,7 @@ class Agreement_Management_Page(BasePage):
 
     # 遍历协议管理元素
     agreement_management_1_element = '[data-menu-id="/erp/business/agreementManagement/index"]'
+    AutomatedTesting_button = "//div[contains(text(),'自动化测试角色')]"
 
     agreement_management_details_button = '//*[@id="/erp/business/agreementManagement/index"]/div[2]/div/div[3]/div/div[3]/div/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[1]/td/div/div/button/span'     # 详情按钮
     agreement_management_other_configurations_button = "//div[contains(text(),'其他配置')]"     # 其他配置按钮
@@ -137,6 +138,7 @@ class Agreement_Management_Page(BasePage):
         # 遍历协议管理
         try:
             self.click('css_selector', self.agreement_management_1_element)
+            self.click('xpath', self.AutomatedTesting_button)
         except Exception as e:
             log.logging_error(f"协议管理页面出现异常：{e}")
             self.screenshot('协议管理页面出现异常截图')
