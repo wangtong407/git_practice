@@ -7,10 +7,10 @@ from selenium.webdriver.edge.options import Options
 
 from work.script_data.T116_Environment_Page_Traverse.Base_Class.Base_Page import BasePage
 # 日志方法传入
-from work.script_data.T116_Environment_Page_Traverse.Tools.log_tool import Logging
+from script_data.T116_Environment_Page_Traverse.Tools.log_tool import Logging
 
 # 登录方法导入
-from work.script_data.T116_Environment_Page_Traverse.Page_Object_Class.login_page import Login
+from script_data.T116_Environment_Page_Traverse.Page_Object_Class.login_page import Login
 
 # Chrom浏览器的导包
 # from selenium.webdriver.chrome.options import Options
